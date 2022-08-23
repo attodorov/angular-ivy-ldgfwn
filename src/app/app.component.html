@@ -1,6 +1,20 @@
-<form action="">
-  <hello name="{{ name }}"></hello>
-  <p>First name:<input id="firstname" value="{{ firstname }}" /></p>
-  <p>Last name:<input id="lastname" value="{{ lastname }}" /></p>
-  <button type="submit" onclick="submit()">Submit</button>
+<form action="" (ngSubmit)="save()">
+  <div id="container" (click)="onclick()">
+    <hello name="{{ name }}"></hello>
+    <p id="firstnamecontainer">
+      First name:<input (click)="oninputclick()"
+        id="firstname"
+        name="firstname"
+        [value]="firstname"
+      />
+    </p>
+    <p id="secondnamecontainer">
+      Last name:<input id="secondname" (click)="oninputclick()" [value]="lastname"/>
+    </p>
+    <button id="submitbutton" type="submit" onclick="submit();">Submit</button>
+    <p>{{ firstname }}</p>
+    <div style="background-color:gray;width:500px;height:100px;">
+      {{ clicklabel }}
+    </div>
+  </div>
 </form>
